@@ -33,7 +33,7 @@
 * [T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)
 
 ## Akira
-* [https://attack.mitre.org/software/S1129/](https://attack.mitre.org/software/S1129/)
+[https://attack.mitre.org/software/S1129/](https://attack.mitre.org/software/S1129/)
 
 
 | Domain | ID | Name | Use |
@@ -49,7 +49,7 @@
 | Enterprise | [T1047](https://attack.mitre.org/techniques/T1047/) | [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) | [Akira](https://attack.mitre.org/software/S1129) will leverage COM objects accessed through WMI during execution to evade detection.[[1]](https://www.trellix.com/blogs/research/akira-ransomware/) |
 
 ## Akira_v2
-* [https://attack.mitre.org/software/S1194/](https://attack.mitre.org/software/S1194/)
+[https://attack.mitre.org/software/S1194/](https://attack.mitre.org/software/S1194/)
 
 
 | Domain | ID | Name | Use |
@@ -62,7 +62,7 @@
 | Enterprise | [T1489](https://attack.mitre.org/techniques/T1489/) | [Service Stop](https://attack.mitre.org/techniques/T1489) | [Akira \_v2](https://attack.mitre.org/software/S1194) can stop running virtual machines.[[1]](https://www.cisa.gov/sites/default/files/2024-04/aa24-109a-stopransomware-akira-ransomware_2.pdf)[[2]](https://blog.talosintelligence.com/akira-ransomware-continues-to-evolve/)[[3]](https://unit42.paloaltonetworks.com/threat-assessment-howling-scorpius-akira-ransomware/) |
 
 ## Megazord
-* [https://attack.mitre.org/software/S1191/](https://attack.mitre.org/software/S1191/)
+[https://attack.mitre.org/software/S1191/](https://attack.mitre.org/software/S1191/)
 
 
 | Domain | ID | Name | Use |

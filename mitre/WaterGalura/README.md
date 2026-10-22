@@ -18,7 +18,7 @@
 * [T1657 - Financial Theft](https://attack.mitre.org/techniques/T1657/)
 
 ## Qilin
-* [https://attack.mitre.org/software/S1242/](https://attack.mitre.org/software/S1242/)
+[https://attack.mitre.org/software/S1242/](https://attack.mitre.org/software/S1242/)
 
 
 | Domain | ID | Name | Use |

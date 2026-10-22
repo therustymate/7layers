@@ -33,7 +33,7 @@
 * [T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)
 
 ## The Gentlemen Ransomware
-* [https://attack.mitre.org/software/S9051/](https://attack.mitre.org/software/S9051/)
+[https://attack.mitre.org/software/S9051/](https://attack.mitre.org/software/S9051/)
 
 
 | Domain | ID | Name | Use |
