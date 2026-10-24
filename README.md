@@ -5,6 +5,7 @@
 # 7layers
 A controlled ransomware emulation framework for adversary simulation, red team operations, and detection engineering.
 
+
 ## Disclaimer
 This project and all associated materials are provided **strictly for authorized red teaming and educational purposes only.**
 
@@ -12,7 +13,25 @@ This project and all associated materials are provided **strictly for authorized
 Unauthorized access on devices using this project and associated materials may cause serious legal consequences.
 
 
-## Threat Actors & MITRE ATT&CK TTPs
+## MITRE ATT&CK TTPs
+
+### Data Encryption
+[T1486 - Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/)
+
+### Recursive File Discovery
+[](https://attack.mitre.org/techniques/T1083/)
+
+### Process Discovery
+[T1057 - Process Discovery](https://attack.mitre.org/techniques/T1057/)
+
+### Visual Defasement
+[T1491.001 - Defacement: Internal Defacement](https://attack.mitre.org/techniques/T1491/001/)
+
+### System Recovery Identification
+[T1490 - Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)
+
+
+## Threat Actors & MITRE ATT&CK TTPs Analysis
 | Group ID  | Group Name            | Analysis                                          |
 |:----------|:----------------------|:--------------------------------------------------|
 | G1058     | The Gentlemen         | [mitre/TheGentlemen](./mitre/TheGentlemen/)       |
