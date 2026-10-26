@@ -1,2 +1,9 @@
-.vscode/
-.venv/
+/extern/bin/engine/*.vdm
+/extern/bin/engine/*.exe
+/extern/bin/engine/*.dll
+/extern/bin/engine/*.orig
+/bin/*.bin
+/bin/shellcode_loader.exe
+*.procmon.*
+/vscode_04c0d99f4f_dump
+/build
