@@ -19,7 +19,7 @@ Unauthorized access on devices using this project and associated materials may c
 * [T1490 - Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)
 
 ## Reverse Engineering
-* [Reverse Engineering: Windows Defender](./rev/README.md)
+* [Reverse Engineering: Windows Defender](./rev/WinDefender.md)
 
 
 ## Threat Actors & MITRE ATT&CK TTPs Analysis
