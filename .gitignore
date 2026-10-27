@@ -7,3 +7,7 @@
 *.procmon.*
 /vscode_04c0d99f4f_dump
 /build
+*.exe
+
+.venv/
+.vscode/
