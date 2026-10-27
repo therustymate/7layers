@@ -11,8 +11,6 @@ This project and all associated materials are provided **strictly for authorized
 **Unauthorized engagements using this project and associated materials are strictly prohibited.** 
 Unauthorized access on devices using this project and associated materials may cause serious legal consequences.
 
-## System Architecture
-
 ## MITRE ATT&CK TTPs
 * [T1486 - Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/)
 * [T1083 - File and Directory Discovery](https://attack.mitre.org/techniques/T1083/)
@@ -71,6 +69,7 @@ cp ./mpclient ../bin/mpclient
 cd ../bin
 ```
 
+
 ## ODSA Build
 ```bash
 cd ./odsa
@@ -94,6 +93,7 @@ cp ./mpclient ../bin/mpclient
 cd ../bin
 ```
 
+
 ## References
 * Threat Actors & TTP Analysis
     * [https://www.zerofox.com/intelligence/september-2026-ransomware-wrap-up/](https://www.zerofox.com/intelligence/september-2026-ransomware-wrap-up/)
@@ -107,4 +107,7 @@ cd ../bin
     * [https://attack.mitre.org/groups/G1024/](https://attack.mitre.org/groups/G1024/)
     * [https://attack.mitre.org/groups/G1032/](https://attack.mitre.org/groups/G1032/)
 * GitHub
-    * 
+    * [https://github.com/MottaSec/akira-ransomware-reverse](https://github.com/MottaSec/akira-ransomware-reverse)
+    * [https://github.com/Bedrock-Safeguard/gentlemen-decryptor](https://github.com/Bedrock-Safeguard/gentlemen-decryptor)
+    * [https://github.com/LoupVaillant/Monocypher](https://github.com/LoupVaillant/Monocypher)
+    * [https://github.com/claudiopizzillo/conti_v3](https://github.com/claudiopizzillo/conti_v3)
