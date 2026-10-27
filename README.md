@@ -20,6 +20,7 @@ Unauthorized access on devices using this project and associated materials may c
 
 ## Reverse Engineering
 * [Reverse Engineering: Windows Defender](./rev/WinDefender.md)
+* [Reverse Engineering: Roblox Byfron](./rev/Byfron.md)
 
 
 ## Threat Actors & MITRE ATT&CK TTPs Analysis

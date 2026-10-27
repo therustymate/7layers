@@ -10,6 +10,8 @@ int main(int argc, char *argv[]) {
     initialize_environment_blocks(&g_PEB, &g_TEB);
     initialize_pe_context(&g_PE_HEAD);
 
+    
+
     cleanup_pe_context(&g_PE_HEAD);
     return 0;
 }
