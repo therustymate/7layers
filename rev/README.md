@@ -2,6 +2,69 @@
 # Reverse Engineering: Windows Defender
 
 
+## MpClient Build
+```bash
+cd ./extern
+mkdir -p ./bin
+mkdir -p ./bin/engine
+
+# Download mpengine v
+cd ./bin/engine
+curl -L "https://go.microsoft.com/fwlink/?LinkID=121721&arch=x86" -o "mpam-fe.exe"
+cabextract "mpam-fe.exe"
+cd ../../
+
+# Clone repository in case it is not present.
+git clone https://github.com/taviso/loadlibrary.git
+git clone https://github.com/HackingLZ/loadlibrary-patch-kit.git
+
+# Copy patch files.
+cp ./loadlibrary-patch-kit/loadlibrary-modern-mpengine.patch ./loadlibrary
+
+# Apply patches.
+cd ./loadlibrary
+git apply loadlibrary-modern-mpengine.patch
+cd ../loadlibrary-patch-kit
+python3 ./patch_mpengine.py ../bin/engine/mpengine.dll
+cd ../../
+
+# Apply latest patches.
+cp ./patches/winstrings.c ./extern/loadlibrary/peloader/winstrings.c
+cp ./patches/winapi/Heap.c ./extern/loadlibrary/peloader/winapi/Heap.c 
+cp ./patches/winapi/InitOnceExecuteOnce.c ./extern/loadlibrary/peloader/winapi/InitOnceExecuteOnce.c
+
+# Build
+cd ./extern/loadlibrary
+make clean && make
+cp ./mpclient ../bin/mpclient
+cd ../bin
+```
+
+
+## ODSA Build
+```bash
+cd ./odsa
+cp ./ODSA.h ../extern/loadlibrary
+cd ../extern/loadlibrary
+
+# #include "ODSA.h"
+# Change mpclient.c: 
+# if (pe_load_library(image.name, &image.image, &image.size) == false) {
+#     LogMessage("You must add the dll and vdm files to the engine directory");
+#     return 1;
+# }
+# 
+# // Handle relocations, imports, etc.
+# link_pe_images(&image, 1);
+# 
+# ODSA_Install(image.image, image.size); // new line
+
+make clean && make
+cp ./mpclient ../bin/mpclient
+cd ../bin
+```
+
+
 ## CPU Emulation (`mpengine.dll`)
 [Windows Offender: Reverse Engineering Windows Defender's Antivirus Emulator](https://i.blackhat.com/us-18/Thu-August-9/us-18-Bulazel-Windows-Offender-Reverse-Engineering-Windows-Defenders-Antivirus-Emulator.pdf)
 
