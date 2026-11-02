@@ -1,28 +1,278 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Project 7layers - @therustymate</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 7layers - @therustymate</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A controlled ransomware emulation framework for adversary simulation, red team operations, and detection engineering.">
+    <meta name="keywords" content="adversary-simulation, proof-of-concept, ransomware-detection, redteaming, windows">
+    <meta name="author" content="@therustymate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <aside class="sidebar" aria-label="Primary navigation">
+        <a class="sidebar-logo" href="#home" aria-label="Project 7layers home">
+            <img src="assets/logo.png" alt="" width="48" height="48">
+        </a>
+        <div class="sidebar-divider"></div>
+        <nav class="sidebar-nav" aria-label="Project navigation">
+            <a class="nav-control is-active" href="#home" aria-label="Home" title="Home" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                    <path d="m3 10 9-7 9 7v11H3z"></path><path d="M9 21v-8h6v8"></path>
+                </svg>
+            </a>
+            <a class="nav-control" href="#ttp" aria-label="TTP mapping" title="TTP mapping">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                </svg>
+            </a>
+            <a class="nav-control" href="#actors" aria-label="Threat Actor Analysis" title="Threat Actor Analysis">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="3.5"></circle><path d="M12 1v5M12 18v5M1 12h5M18 12h5"></path>
+                </svg>
+            </a>
+            <a class="nav-control" href="#repository" aria-label="GitHub Repository" title="GitHub Repository">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .8C5.82.8.8 5.82.8 12c0 4.95 3.2 9.16 7.64 10.64.56.1.76-.24.76-.54 0-.26-.01-.96-.02-1.88-3.11.68-3.77-1.32-3.77-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 1.77 3.23 1.22.1-.73.4-1.22.71-1.5-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.14 3.08-1.14.61 1.54.23 2.68.11 2.96.72.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.24-5.09 5.51.4.35.76 1.04.76 2.1 0 1.51-.02 2.72-.02 3.09 0 .3.2.65.77.54A11.21 11.21 0 0 0 23.2 12C23.2 5.82 18.18.8 12 .8Z"></path>
+                </svg>
+            </a>
+        </nav>
+    </aside>
 
-        
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-background" aria-hidden="true">
+                <div class="background-image"></div>
+                <div class="background-shade"></div>
+            </div>
+            <div class="hero-center">
+                <article class="hero-frame">
+                    <div class="hero-lockup">
+                        <div class="hero-symbol">
+                            <img src="assets/logo.png" alt="7layers snake and dagger emblem" width="210" height="210">
+                        </div>
+                        <span class="hero-divider" aria-hidden="true"></span>
+                        <div class="hero-copy">
+                            <h1 id="hero-title">Project 7layers</h1>
+                            <p class="hero-description">A ransomware adversary simulation framework<br class="desktop-break"> for authorized security exercises and<br class="desktop-break"> defensive resilience research.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <!-- Default Statcounter code for 7layers https://therustymate.com/7layers -->
-        <script type="text/javascript">
-            var sc_project=13363121; 
-            var sc_invisible=1; 
-            var sc_security="d7f31207"; 
-        </script>
-        <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-        <noscript>
-            <div class="statcounter">
-                <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
-                    <img class="statcounter" src="https://c.statcounter.com/13363121/0/d7f31207/1/" alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade">
+        <!-- TTPs: five fixed-height rows + one reserved detail panel. -->
+        <section class="ttp" id="ttp" aria-labelledby="ttp-title">
+            <div class="ttp-layout">
+                <div class="ttp-content">
+                    <h2 class="ttp-title" id="ttp-title">
+                        <span class="ttp-title-tactics">TACTICS</span>
+                        <span class="ttp-title-techniques">TECHNIQUES</span>
+                        <span class="ttp-title-procedures">PROCEDURES</span>
+                    </h2>
+                    <p class="ttp-description">Explore representative MITRE ATT&amp;CK techniques relevant to controlled ransomware emulation and defensive testing.</p>
+
+                    <div class="ttp-accordion" data-ttp-accordion aria-label="MITRE ATT&CK techniques">
+                        <article class="ttp-item is-open">
+                            <h3><button class="ttp-trigger" id="ttp-trigger-1" type="button" aria-expanded="true" aria-controls="ttp-panel-1">
+                                <span class="ttp-id">T1083</span><span class="ttp-name">File and Directory Discovery</span><span class="ttp-toggle" aria-hidden="true"></span>
+                            </button></h3>
+                            <div class="ttp-panel" id="ttp-panel-1" role="region" aria-labelledby="ttp-trigger-1">
+                                <div class="ttp-panel-clip"><div class="ttp-panel-content">
+                                    <span class="ttp-tactic">DISCOVERY</span>
+                                    <p>Enumeration of files and directories to understand the target filesystem within an authorized test scope.</p>
+                                    <a href="https://attack.mitre.org/techniques/T1083/" target="_blank" rel="noopener noreferrer">VIEW ATT&amp;CK REFERENCE <span aria-hidden="true">↗</span></a>
+                                </div></div>
+                            </div>
+                        </article>
+                        <article class="ttp-item">
+                            <h3><button class="ttp-trigger" id="ttp-trigger-2" type="button" aria-expanded="false" aria-controls="ttp-panel-2">
+                                <span class="ttp-id">T1057</span><span class="ttp-name">Process Discovery</span><span class="ttp-toggle" aria-hidden="true"></span>
+                            </button></h3>
+                            <div class="ttp-panel" id="ttp-panel-2" role="region" aria-labelledby="ttp-trigger-2" inert>
+                                <div class="ttp-panel-clip"><div class="ttp-panel-content">
+                                    <span class="ttp-tactic">DISCOVERY</span>
+                                    <p>Inspection of running processes to evaluate visibility and process-level detection coverage.</p>
+                                    <a href="https://attack.mitre.org/techniques/T1057/" target="_blank" rel="noopener noreferrer">VIEW ATT&amp;CK REFERENCE <span aria-hidden="true">↗</span></a>
+                                </div></div>
+                            </div>
+                        </article>
+                        <article class="ttp-item">
+                            <h3><button class="ttp-trigger" id="ttp-trigger-3" type="button" aria-expanded="false" aria-controls="ttp-panel-3">
+                                <span class="ttp-id">T1491.001</span><span class="ttp-name">Defacement: Internal Defacement</span><span class="ttp-toggle" aria-hidden="true"></span>
+                            </button></h3>
+                            <div class="ttp-panel" id="ttp-panel-3" role="region" aria-labelledby="ttp-trigger-3" inert>
+                                <div class="ttp-panel-clip"><div class="ttp-panel-content">
+                                    <span class="ttp-tactic">IMPACT</span>
+                                    <p>Simulates desktop wallpaper defacement to test blue-team detection and incident response.</p>
+                                    <a href="https://attack.mitre.org/techniques/T1491/001/" target="_blank" rel="noopener noreferrer">VIEW ATT&amp;CK REFERENCE <span aria-hidden="true">↗</span></a>
+                                </div></div>
+                            </div>
+                        </article>
+                        <article class="ttp-item">
+                            <h3><button class="ttp-trigger" id="ttp-trigger-4" type="button" aria-expanded="false" aria-controls="ttp-panel-4">
+                                <span class="ttp-id">T1486</span><span class="ttp-name">Data Encrypted for Impact</span><span class="ttp-toggle" aria-hidden="true"></span>
+                            </button></h3>
+                            <div class="ttp-panel" id="ttp-panel-4" role="region" aria-labelledby="ttp-trigger-4" inert>
+                                <div class="ttp-panel-clip"><div class="ttp-panel-content">
+                                    <span class="ttp-tactic">IMPACT</span>
+                                    <p>A ransomware impact technique represented only within deliberately controlled exercise datasets and isolated environments.</p>
+                                    <a href="https://attack.mitre.org/techniques/T1486/" target="_blank" rel="noopener noreferrer">VIEW ATT&amp;CK REFERENCE <span aria-hidden="true">↗</span></a>
+                                </div></div>
+                            </div>
+                        </article>
+                        <article class="ttp-item">
+                            <h3><button class="ttp-trigger" id="ttp-trigger-5" type="button" aria-expanded="false" aria-controls="ttp-panel-5">
+                                <span class="ttp-id">T1490</span><span class="ttp-name">Inhibit System Recovery</span><span class="ttp-toggle" aria-hidden="true"></span>
+                            </button></h3>
+                            <div class="ttp-panel" id="ttp-panel-5" role="region" aria-labelledby="ttp-trigger-5" inert>
+                                <div class="ttp-panel-clip"><div class="ttp-panel-content">
+                                    <span class="ttp-tactic">IMPACT / MONITORING-ONLY</span>
+                                    <p>Detect and report exposed recovery mechanisms without deleting restore points or altering recovery settings.</p>
+                                    <a href="https://attack.mitre.org/techniques/T1490/" target="_blank" rel="noopener noreferrer">VIEW ATT&amp;CK REFERENCE <span aria-hidden="true">↗</span></a>
+                                </div></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research references mapped from therustymate/7layers/mitre. -->
+        <section class="actors" id="actors" aria-labelledby="actors-title">
+            <div class="actors-shell">
+                <header class="actors-heading">
+                    <div>
+                        <h2 id="actors-title">THREAT ACTOR <span>ANALYSIS</span></h2>
+                        <p>Ransomware research references mapped to MITRE ATT&amp;CK.</p>
+                    </div>
+                </header>
+
+                <div class="actors-grid">
+                    <div class="actors-directory">
+                        <div class="actors-tabs" role="tablist" aria-label="Ransomware research reference profiles">
+                            <button class="actor-tab is-active" type="button" role="tab" id="actor-tab-akira" aria-selected="true" aria-controls="actor-panel" tabindex="0" data-actor="akira">
+                                <span class="actor-tab-index">01 <span>/</span> G1024</span>
+                                <span class="actor-tab-name">AKIRA <span class="actor-tab-arrow" aria-hidden="true">↗</span></span>
+                                <span class="actor-tab-subtitle">Akira · Akira_v2 · Megazord</span>
+                            </button>
+                            <button class="actor-tab" type="button" role="tab" id="actor-tab-inc" aria-selected="false" aria-controls="actor-panel" tabindex="-1" data-actor="inc">
+                                <span class="actor-tab-index">02 <span>/</span> G1032</span>
+                                <span class="actor-tab-name">INC RANSOM <span class="actor-tab-arrow" aria-hidden="true">↗</span></span>
+                                <span class="actor-tab-subtitle">INC Ransomware</span>
+                            </button>
+                            <button class="actor-tab" type="button" role="tab" id="actor-tab-gentlemen" aria-selected="false" aria-controls="actor-panel" tabindex="-1" data-actor="gentlemen">
+                                <span class="actor-tab-index">03 <span>/</span> G1058</span>
+                                <span class="actor-tab-name">THE GENTLEMEN <span class="actor-tab-arrow" aria-hidden="true">↗</span></span>
+                                <span class="actor-tab-subtitle">The Gentlemen Ransomware</span>
+                            </button>
+                            <button class="actor-tab" type="button" role="tab" id="actor-tab-galura" aria-selected="false" aria-controls="actor-panel" tabindex="-1" data-actor="galura">
+                                <span class="actor-tab-index">04 <span>/</span> G1050</span>
+                                <span class="actor-tab-name">WATER GALURA <span class="actor-tab-arrow" aria-hidden="true">↗</span></span>
+                                <span class="actor-tab-subtitle">Qilin / Agenda</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <article class="actor-dossier" id="actor-panel" role="tabpanel" aria-labelledby="actor-tab-akira" tabindex="0">
+                        <div class="actor-dossier-identity">
+                            <div>
+                                <span class="actor-category" data-actor-field="category">RANSOMWARE / G1024</span>
+                                <h3 data-actor-field="name">AKIRA</h3>
+                            </div>
+                        </div>
+
+                        <div class="actor-facts" aria-label="ATTACK reference metadata">
+                            <div><span>GROUP ID</span><strong data-actor-field="groupId">G1024</strong></div>
+                            <div><span>SOFTWARE ID</span><strong data-actor-field="softwareId">S1129 / S1194 / S1191</strong></div>
+                            <div><span>ALSO MAPPED</span><strong data-actor-field="alias">AKIRA_V2</strong></div>
+                        </div>
+                        <div class="actor-pattern">
+                            <div class="actor-line-heading"><span>DOCUMENTED TECHNIQUES</span><span>01 — 04</span></div>
+                            <div class="actor-pattern-steps" aria-label="Selected mapped techniques; not a chronological attack chain">
+                                <div class="actor-pattern-step"><span>01</span><strong data-actor-stage="0">Remote access</strong></div>
+                                <div class="actor-pattern-step"><span>02</span><strong data-actor-stage="1">File discovery</strong></div>
+                                <div class="actor-pattern-step"><span>03</span><strong data-actor-stage="2">Recovery disruption</strong></div>
+                                <div class="actor-pattern-step"><span>04</span><strong data-actor-stage="3">Data encryption</strong></div>
+                            </div>
+                        </div>
+                        <div class="actor-briefs">
+                            <div class="actor-brief actor-brief-references">
+                                <div class="actor-brief-head">
+                                    <h4>ATT&amp;CK REFERENCES</h4>
+                                    <span class="actor-technique-count" data-actor-technique-count>29 TECHNIQUES</span>
+                                </div>
+                                <div class="actor-techniques" data-actor-techniques tabindex="0" aria-label="Complete ATT&amp;CK technique references for selected actor; scroll to see more">
+                                    <a href="https://attack.mitre.org/techniques/T1531/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1531, opens in new tab">T1531<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1560/001/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1560.001, opens in new tab">T1560.001<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1059/001/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1059.001, opens in new tab">T1059.001<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1486/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1486, opens in new tab">T1486<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1213/002/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1213.002, opens in new tab">T1213.002<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1685/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1685, opens in new tab">T1685<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1482/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1482, opens in new tab">T1482<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1567/002/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1567.002, opens in new tab">T1567.002<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1133/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1133, opens in new tab">T1133<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1657/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1657, opens in new tab">T1657<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1036/005/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1036.005, opens in new tab">T1036.005<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1027/001/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1027.001, opens in new tab">T1027.001<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1219/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1219, opens in new tab">T1219<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1021/001/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1021.001, opens in new tab">T1021.001<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1018/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1018, opens in new tab">T1018<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1558/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1558, opens in new tab">T1558<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1078/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1078, opens in new tab">T1078<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1083/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1083, opens in new tab">T1083<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1490/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1490, opens in new tab">T1490<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1106/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1106, opens in new tab">T1106<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1135/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1135, opens in new tab">T1135<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1057/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1057, opens in new tab">T1057<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1082/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1082, opens in new tab">T1082<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1047/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1047, opens in new tab">T1047<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1543/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1543, opens in new tab">T1543<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1480/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1480, opens in new tab">T1480<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1654/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1654, opens in new tab">T1654<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1489/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1489, opens in new tab">T1489<span aria-hidden="true">↗</span></a>
+                                    <a href="https://attack.mitre.org/techniques/T1059/003/" target="_blank" rel="noopener noreferrer" aria-label="MITRE ATT&amp;CK technique T1059.003, opens in new tab">T1059.003<span aria-hidden="true">↗</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actor-dossier-bottom">
+                            <div class="actor-source-links">
+                                <a data-actor-mitre href="https://attack.mitre.org/groups/G1024/" target="_blank" rel="noopener noreferrer">MITRE ATT&amp;CK <span aria-hidden="true">↗</span></a>
+                                <a data-actor-source href="https://github.com/therustymate/7layers/blob/main/mitre/Akira/README.md" target="_blank" rel="noopener noreferrer">VIEW RESEARCH <span aria-hidden="true">↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="repository" id="repository" aria-label="GitHub repository">
+            <div class="repository-inner">
+                <a class="repository-card" href="https://github.com/therustymate/7layers" target="_blank" rel="noopener noreferrer" aria-label="View therustymate / 7layers on GitHub">
+                    <div class="repository-copy">
+                        <h2 class="repository-title"><span class="repository-owner-line"><span class="repository-owner">therustymate</span><span class="repository-slash">/</span></span><span class="repository-name">7layers</span></h2>
+                        <p>A controlled ransomware emulation framework for adversary simulation, red team operations, and detection engineering.</p>
+                    </div>
+                    <div class="repository-github-mark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                            <path d="M12 .8C5.82.8.8 5.82.8 12c0 4.95 3.2 9.16 7.64 10.64.56.1.76-.24.76-.54 0-.26-.01-.96-.02-1.88-3.11.68-3.77-1.32-3.77-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 1.77 3.23 1.22.1-.73.4-1.22.71-1.5-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.14 3.08-1.14.61 1.54.23 2.68.11 2.96.72.78 1.14 1.77 1.14 2.99 0 4.29-2.61 5.24-5.09 5.51.4.35.76 1.04.76 2.1 0 1.51-.02 2.72-.02 3.09 0 .3.2.65.77.54A11.21 11.21 0 0 0 23.2 12C23.2 5.82 18.18.8 12 .8Z"></path>
+                        </svg>
+                    </div>
+                    <span class="repository-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 19 19 5M8 5h11v11"></path></svg></span>
                 </a>
             </div>
-        </noscript>
-        <!-- End of Statcounter Code -->
-    </body>
+        </section>
+    </main>
+
+    <!-- Default Statcounter code for 7layers https://therustymate.com/7layers -->
+    <script type="text/javascript">var sc_project=13363121;var sc_invisible=1;var sc_security="d7f31207";</script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank" rel="noopener noreferrer"><img class="statcounter" src="https://c.statcounter.com/13363121/0/d7f31207/1/" alt="Web Analytics" referrerpolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <script src="script.js"></script>
+</body>
 </html>

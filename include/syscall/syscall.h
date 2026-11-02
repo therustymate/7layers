@@ -40,3 +40,5 @@ int set_syscall_ssn(DWORD ssn);
 
 SYSCALL_STATUS get_ssn_halo_gate(DJB2_HASH* hash, DWORD* ssn);
 SYSCALL_STATUS get_ssn_hell_gate(DJB2_HASH* hash, DWORD* ssn);
+
+// -------------------------------------------

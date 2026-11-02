@@ -1,5 +1,5 @@
 #include "7layers.h"
-#include "syscall.h"
+#include "syscall/syscall.h"
 #include "scanner.h"
 
 PVOID g_sys_ptr;

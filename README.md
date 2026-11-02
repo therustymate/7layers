@@ -11,10 +11,77 @@ This project and all associated materials are provided **strictly for authorized
 **Unauthorized engagements using this project and associated materials are strictly prohibited.** 
 Unauthorized access on devices using this project and associated materials may cause serious legal consequences.
 
+## Build
+```bash
+make clean
+make
+make strip
+```
+
+## Configuration
+You can configure the file extensions and target directories that 7layers ransomware is allowed to encrypt by modifying `include/config.h`.
+
+Any individual who modifies the HARD_DENY lists (`HARD_DENY_EXT`, `HARD_DENY_PATH`) assumes full responsibility for any consequences resulting from those modifications.
+
+### Scope Setup
+This list defines the scope of directory paths that the ransomware is permitted to encrypt. By default, all directories not explicitly included in the defined scope are excluded from encryption, and no configuration option is provided to include them as encryption targets by default.
+
+`{ File Path, Allow Recursive (0 or 1), Max Recursive Search Depth }`
+
+```c
+static PATH_SCOPE SCOPE_PATH_LIST[] = {
+    { "%USERPROFILE%\\Documents",   1, 5 },
+    { "%USERPROFILE%\\Downloads",   1, 1 },
+    { "%USERPROFILE%\\Desktop",     1, 3 },
+    { "%USERPROFILE%\\Pictures",    1, 3 },
+    { "%USERPROFILE%\\Videos",      1, 3 },
+};
+```
+
+### Target File Extension Setup
+This list defines the scope of file extensions that the ransomware is permitted to encrypt. **By default, all file extensions not explicitly included in the defined scope are excluded from encryption, and no configuration option is provided to include them as encryption targets by default**.
+
+Supported File Types:
+* Document
+* Image
+* Video
+* Audio
+* Text
+* General
+* Binary
+* Dummy
+* Script
+* Dump
+* VDisk
+
+File types are included for classification purposes only and do not affect any functionality.
+
+`{ File Type, File Extension (Lowercase) }`
+
+```c
+static FILE_EXTENSION_DATA SCOPE_EXT_LIST[] = {
+    // Allowed: Text File
+    { TEXT,     "txt"       },      // Plain Text
+    { TEXT,     "md"        },      // Markdown
+    { TEXT,     "csv"       },      // Comma-Separated Values
+    { TEXT,     "tsv"       },      // Tab-Separated Values
+    { TEXT,     "json"      },      // JSON Data
+    { TEXT,     "xml"       },      // XML Document
+    
+    // ...
+
+    // Allowed: Test Files
+    { DUMMY,    "flag"      },      // Capture The Flag
+    { DUMMY,    "target"    },      // Custom Test Target
+    { DUMMY,    "dummy"     },      // Dummy Data
+};
+```
+
+
 ## MITRE ATT&CK TTPs
-* [T1486 - Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/)
 * [T1083 - File and Directory Discovery](https://attack.mitre.org/techniques/T1083/)
 * [T1057 - Process Discovery](https://attack.mitre.org/techniques/T1057/)
+* [T1486 - Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/)
 * [T1491.001 - Defacement: Internal Defacement](https://attack.mitre.org/techniques/T1491/001/)
 * [T1490 - Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)
 

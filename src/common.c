@@ -63,6 +63,17 @@ int c_wstrcmp(const WCHAR *a, const WCHAR *b) {
     return (int)*a - (int)*b;
 }
 
+int c_strcmp(const char *str1, const char *str2) {
+    // Loop as long as characters match and we haven't hit the end of str1
+    while (*str1 && (*str1 == *str2)) {
+        str1++;
+        str2++;
+    }
+    
+    // Return the ASCII difference of the first non-matching characters
+    return *(unsigned char *)str1 - *(unsigned char *)str2;
+}
+
 size_t c_strlen(const char *p) {
     ANTI_DISASM();
     size_t i = 0;
@@ -72,6 +83,40 @@ size_t c_strlen(const char *p) {
     }
     return i;
 
+}
+
+char* c_strrchr(const char *str, int c) {
+    const char *last = NULL;
+    char ch = (char)c;
+
+    while (*str != '\0') {
+        if (*str == ch) {
+            last = str;
+        }
+        str++;
+    }
+
+    // Check the null terminator itself, as strrchr includes '\0' in its search
+    if (*str == ch) {
+        last = str;
+    }
+
+    return (char *)last;
+}
+
+int c_strcasecmp(const char *s1, const char *s2) {
+    while (*s1 && *s2) {
+        int c1 = tolower((unsigned char)*s1);
+        int c2 = tolower((unsigned char)*s2);
+        
+        if (c1 != c2) {
+            return c1 - c2;
+        }
+        s1++;
+        s2++;
+    }
+    // Return the difference between the remaining characters (handles different lengths)
+    return tolower((unsigned char)*s1) - tolower((unsigned char)*s2);
 }
 
 PTEB GetTEB() {

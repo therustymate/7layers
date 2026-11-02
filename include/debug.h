@@ -25,6 +25,7 @@
 #define FAIL(MSG, ...) LOG_ODSA("FAIL", OBF(MSG), ##__VA_ARGS__)
 #define INFO(MSG, ...) LOG_ODSA("INFO", OBF(MSG), ##__VA_ARGS__)
 #define WARN(MSG, ...) LOG_ODSA("WARN", OBF(MSG), ##__VA_ARGS__)
+#define DBUG(MSG, ...) LOG_ODSA("DBUG", OBF(MSG), ##__VA_ARGS__)
 
 #else
 
@@ -32,5 +33,6 @@
 #define FAIL(MSG, ...) do { if (DEBUG_MODE) { fprintf(stderr, "[FAIL] "); fprintf(stderr, OBF(MSG), ##__VA_ARGS__); fprintf(stderr, "\n"); } } while (0)
 #define INFO(MSG, ...) do { if (DEBUG_MODE) { printf("[INFO] "); printf(OBF(MSG), ##__VA_ARGS__); printf("\n"); } } while (0)
 #define WARN(MSG, ...) do { if (DEBUG_MODE) { fprintf(stderr, "[WARN] "); fprintf(stderr, OBF(MSG), ##__VA_ARGS__); fprintf(stderr, "\n"); } } while (0)
+#define DBUG(MSG, ...) do { if (DEBUG_MODE) { printf("[DBUG] "); printf(OBF(MSG), ##__VA_ARGS__); printf("\n"); } } while (0)
 
 #endif
