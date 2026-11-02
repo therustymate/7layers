@@ -6,6 +6,14 @@
 
 // -------------------------------------------
 
+#pragma once
+
+#include "7layers.h"
+
+#define DEBUG_MODE 1
+
+// -------------------------------------------
+
 typedef enum FILE_TYPE {
     DOCUMENT,
     IMAGE,

@@ -1,4 +1,5 @@
 #include "7layers.h"
+#include "obfuscation.h"
 
 size_t c_wchar_to_char(const WCHAR *src, size_t src_len, char *dst, size_t dst_size) {
     ANTI_DISASM();

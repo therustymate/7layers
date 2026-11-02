@@ -13,9 +13,10 @@ Unauthorized access on devices using this project and associated materials may c
 
 ## Build
 ```bash
-make clean
-make
-make strip
+make            # Default
+make clean      # Cleanup
+make strip      # Symbol Removal
+make rebuild    # Build After Cleanup
 ```
 
 ## Configuration

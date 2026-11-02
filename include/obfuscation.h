@@ -1,83 +1,56 @@
 #pragma once
 
 #include "7layers.h"
+#include <array>
+#include <cstddef>
+#include <cstdint>
+#include <string>
 
-// https://steve-s.gitbook.io/0xtriboulet/archive/notice/just-malicious/advanced-string-obfuscation
+namespace obf {
+    constexpr std::uint8_t make_key() noexcept {
+        const char t[] = __TIME__;
+        return static_cast<std::uint8_t>(
+            ((t[7] - '0') * 1      + (t[6] - '0') * 10     +
+            (t[4] - '0') * 60     + (t[3] - '0') * 600    +
+            (t[1] - '0') * 3600   + (t[0] - '0') * 36000) & 0xFFu);
+    }
 
-#define KEY                                                     \
-    ((((__TIME__[7] - '0') * 1       +                          \
-       (__TIME__[6] - '0') * 10      +                          \
-       (__TIME__[4] - '0') * 60      +                          \
-       (__TIME__[3] - '0') * 600     +                          \
-       (__TIME__[1] - '0') * 3600    +                          \
-       (__TIME__[0] - '0') * 36000) & 0xFF))
+    constexpr std::uint8_t KEY = make_key();
 
-#define STR_MAX 64
+    template <std::size_t N>
+    constexpr std::array<std::uint8_t, N>
+    encrypt(const char (&s)[N], std::uint8_t key) noexcept {
+        std::array<std::uint8_t, N> out{};
+        for (std::size_t i = 0; i < N; ++i)
+            out[i] = static_cast<std::uint8_t>(s[i]) ^ key;
+        return out;
+    }
 
-#define ENC_CHAR(s, i)                                          \
-    ((i) < sizeof(s)                                            \
-        ? (unsigned char)((s)[i] ^ (unsigned char)KEY)          \
-        : 0)
-
-#define ENC_8(s, b)                                             \
-    ENC_CHAR(s, (b) + 0),                                       \
-    ENC_CHAR(s, (b) + 1),                                       \
-    ENC_CHAR(s, (b) + 2),                                       \
-    ENC_CHAR(s, (b) + 3),                                       \
-    ENC_CHAR(s, (b) + 4),                                       \
-    ENC_CHAR(s, (b) + 5),                                       \
-    ENC_CHAR(s, (b) + 6),                                       \
-    ENC_CHAR(s, (b) + 7)
-
-#define ENC_16(s, b)                                            \
-    ENC_8(s, b),                                                \
-    ENC_8(s, (b) + 8)
-
-#define ENC_32(s, b)                                            \
-    ENC_16(s, b),                                               \
-    ENC_16(s, (b) + 16)
-
-#define ENC_64(s, b)                                            \
-    ENC_32(s, b),                                               \
-    ENC_32(s, (b) + 32)
-
-static __attribute__((noinline, optimize("O0"), unused)) void str_decrypt(
-    const volatile unsigned char *src,
-    char *dst,
-    size_t size,
-    unsigned char key
-) {
-    size_t i;
-
-    for (i = 0; i < size; ++i) {
-        dst[i] = (char)(src[i] ^ key);
+    inline std::string
+    decrypt(const std::uint8_t* src, std::size_t n, std::uint8_t key) {
+        std::string out(n ? n - 1 : 0, '\0');
+        for (std::size_t i = 0; i + 1 < n; ++i)
+            out[i] = static_cast<char>(src[i] ^ key);
+        return out;
     }
 }
 
-#define OBF(str)                                                \
-    ({                                                          \
-        _Static_assert(                                         \
-            sizeof(str) <= STR_MAX,                             \
-            "OBF(): string too long"                            \
-        );                                                      \
-                                                                \
-        static const unsigned char _enc[STR_MAX] = {            \
-            ENC_64(str, 0)                                      \
-        };                                                      \
-                                                                \
-        static char _dec[sizeof(str)] = {0};                    \
-                                                                \
-        str_decrypt(                                            \
-            _enc,                                               \
-            _dec,                                               \
-            sizeof(str),                                        \
-            (unsigned char)KEY                                  \
-        );                                                      \
-                                                                \
-        _dec;                                                   \
-    })
+#define OBF(str)                                                          \
+    ([]() -> const char* {                                                \
+        static constexpr auto _enc = ::obf::encrypt(str, ::obf::KEY);     \
+        static const std::string _dec =                                   \
+            ::obf::decrypt(_enc.data(), _enc.size(), ::obf::KEY);         \
+        return _dec.c_str();                                              \
+    }())
 
-// ---
+#define OBF_S(str)                                                        \
+    ([]() -> const std::string& {                                         \
+        static constexpr auto _enc = ::obf::encrypt(str, ::obf::KEY);     \
+        static const std::string _dec =                                   \
+            ::obf::decrypt(_enc.data(), _enc.size(), ::obf::KEY);         \
+        return _dec;                                                      \
+    }())
+
 
 // RobloxPlayerBeta.dll Byfron Anti Disassembly
 
