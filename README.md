@@ -30,9 +30,9 @@ $ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
 
 [7LAYERS / BUILD METADATA]
 
-Build ID            : 7d95f663-4e59-496d-aa3c-13d379ee9e88
-Git Commit          : aa4c946145b6
-Build Date          : 2026-11-09T11:50:46Z
+Build ID            : 78f1c370-5eea-4933-a929-252d01db70d0
+Git Commit          : a611a9dd068b
+Build Date          : 2026-11-10T11:07:52NZDT
 Build Profile       : rusty
 Authorization ID    : win11
 Key Fingerprint     : rusty
@@ -42,9 +42,9 @@ $ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
 
 [7LAYERS / BUILD METADATA]
 
-Build ID            : c4bc8a93-dcef-480c-ab5f-488a0a005bc5
-Git Commit          : aa4c946145b6
-Build Date          : 2026-11-09T11:51:10Z
+Build ID            : 5074af9c-baaa-4797-9ebe-ac7235825e05
+Git Commit          : a611a9dd068b
+Build Date          : 2026-11-10T11:08:27NZDT
 Build Profile       : UNVERIFIED
 Authorization ID    : NONE
 Key Fingerprint     : UNSIGNED

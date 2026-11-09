@@ -68,7 +68,7 @@ LDLIBS := -lversion -ladvapi32
 
 BUILD_ID := $(shell python3 -c "import uuid; print(uuid.uuid4())")
 BUILD_COMMIT := $(shell git rev-parse --short=12 HEAD 2>/dev/null || echo unknown)
-BUILD_DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+BUILD_DATE := $(shell date +"%Y-%m-%dT%H:%M:%S%Z")
 
 BUILD_PROFILE ?= UNVERIFIED
 AUTHORIZATION_ID ?= NONE
