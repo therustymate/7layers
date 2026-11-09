@@ -30,8 +30,8 @@ $ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
 
 [7LAYERS / BUILD METADATA]
 
-Build ID            : db02b5e6-7aea-41ea-b0a3-edc749aa81f7
-Git Commit          : 00c970c0816f
+Build ID            : b94a8e03-50f4-430d-8b32-0e5fb3d1145e
+Git Commit          : ffc6558de8ca
 Build Date          : 2026-11-09T11:38:54Z
 Build Profile       : rusty
 Authorization ID    : win11
