@@ -13,10 +13,29 @@ Unauthorized access on devices using this project and associated materials may c
 
 ## Build
 ```bash
+# Compile Commands
 make            # Default
 make clean      # Cleanup
 make strip      # Symbol Removal
 make rebuild    # Build After Cleanup
+
+# Build Metadata
+make rebuild BUILD_PROFILE=REDTEAM AUTHORIZATION_ID=LAB-2026-001 SIGNING_KEY_FINGERPRINT=AB12CD34
+```
+
+## Metadata Parsing
+```bash
+$ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
+
+[7LAYERS / BUILD METADATA]
+
+Build ID            : db02b5e6-7aea-41ea-b0a3-edc749aa81f7
+Git Commit          : 00c970c0816f
+Build Date          : 2026-11-09T11:38:54Z
+Build Profile       : rusty
+Authorization ID    : win11
+Key Fingerprint     : rusty
+
 ```
 
 ## Configuration

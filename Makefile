@@ -59,7 +59,29 @@ LDFLAGS := \
 	-static \
 	-Wl,-Map=$(BUILD_DIR)/$(NAME).map
 
-LDLIBS :=
+LDLIBS := -lversion -ladvapi32
+
+
+# -------------------------------------------
+# Build Metadata
+# -------------------------------------------
+
+BUILD_ID := $(shell python3 -c "import uuid; print(uuid.uuid4())")
+BUILD_COMMIT := $(shell git rev-parse --short=12 HEAD 2>/dev/null || echo unknown)
+BUILD_DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+BUILD_PROFILE ?= UNVERIFIED
+AUTHORIZATION_ID ?= NONE
+SIGNING_KEY_FINGERPRINT ?= UNSIGNED
+
+CXXFLAGS += \
+    -DBUILD_ID=\"$(BUILD_ID)\" \
+    -DBUILD_GIT_COMMIT=\"$(BUILD_COMMIT)\" \
+    -DBUILD_DATE=\"$(BUILD_DATE)\" \
+    -DBUILD_PROFILE=\"$(BUILD_PROFILE)\" \
+    -DBUILD_AUTHORIZATION_ID=\"$(AUTHORIZATION_ID)\" \
+    -DBUILD_SIGNING_KEY_FINGERPRINT=\"$(SIGNING_KEY_FINGERPRINT)\"
+
 
 # -------------------------------------------
 # Build
