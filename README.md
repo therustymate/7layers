@@ -25,6 +25,7 @@ make rebuild BUILD_PROFILE=REDTEAM AUTHORIZATION_ID=LAB-2026-001 SIGNING_KEY_FIN
 
 ## Metadata Parsing
 ```bash
+$ make rebuild BUILD_PROFILE=rusty AUTHORIZATION_ID=win11 SIGNING_KEY_FINGERPRINT=rusty
 $ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
 
 [7LAYERS / BUILD METADATA]
@@ -35,6 +36,16 @@ Build Date          : 2026-11-09T11:38:54Z
 Build Profile       : rusty
 Authorization ID    : win11
 Key Fingerprint     : rusty
+
+$ make rebuild
+$ python3 ./scripts/meta.py ./bin/7layers_4.0.0_x64.exe
+
+Build ID            : 00e5e573-40b0-4ea8-aec7-73f7adf79a4e
+Git Commit          : fdf9be01c1ac
+Build Date          : 2026-11-09T11:45:22Z
+Build Profile       : UNVERIFIED
+Authorization ID    : NONE
+Key Fingerprint     : UNSIGNED
 
 ```
 
